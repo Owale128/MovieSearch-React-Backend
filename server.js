@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
-const User = require('./userModel')
+const User = require('./model/userModel')
 const bcrypt = require('bcryptjs');
-const auth = require('./auth')
+const connectDB = require('./database/db')
+const auth = require('./middleware/auth')
 const app = express();
 
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyparser.json());
 app.use(cors());
 
+connectDB()
 
 app.get('/', auth, async (req, res) => {
     try {

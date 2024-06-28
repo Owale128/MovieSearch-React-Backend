@@ -3,12 +3,16 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const User = require('./userModel')
 const bcrypt = require('bcryptjs');
+const auth = require('./auth')
 const app = express();
+
+
 const PORT = process.env.PORT || 5000;
 app.use(bodyparser.json());
 app.use(cors());
 
-app.get('/', async (req, res) => {
+
+app.get('/', auth, async (req, res) => {
     try {
       const users = await User.find();
       res.json(users);
@@ -46,6 +50,9 @@ app.post('/api/login', async (req, res) => {
     if(!validPassword) {
         return res.status(400).send('Invalid username or password');
     }
+
+    const token = jwt.sign({ userId: user._id}, process.env.JWT_SECRET, { expiresIn: '1h' })
+    res.json({ token });
 });
 
 app.listen(PORT, () => {

@@ -3,6 +3,7 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const User = require('./model/userModel')
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
 const connectDB = require('./database/db')
 const auth = require('./middleware/auth')
 const app = express();

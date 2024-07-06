@@ -3,4 +3,7 @@ This backend for movie search app is  built with Express.js and Node.js and is c
 
 ![movieSearchBackendPic](https://github.com/Owale128/MovieSearch-React/assets/110387474/0a0463e0-505d-41f5-84ec-b48f8f6ca87c)
 
+# Stack:
+[![My Skills](https://skillicons.dev/icons?i=nodejs, express, mongodb)](https://skillicons.dev)
+#
 Link to my frontend repo: https://github.com/Owale128/MovieSearch-React
